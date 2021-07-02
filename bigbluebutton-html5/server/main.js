@@ -29,7 +29,7 @@ import '/imports/api/guest-users/server';
 import '/imports/api/local-settings/server';
 import '/imports/api/voice-call-states/server';
 import '/imports/api/auth-token-validation/server';
-
+import '/imports/api/live-streams/server';
 // Commons
 import '/imports/api/log-client/server';
 import '/imports/api/common/server/helpers';

@@ -5,6 +5,8 @@ import Auth from '/imports/ui/services/auth';
 import Users from '/imports/api/users';
 import Settings from '/imports/ui/services/settings';
 import getFromUserSettings from '/imports/ui/services/users-settings';
+import { getLiveStreamUrl } from '/imports/ui/components/live-stream/service';
+import WhiteboardMultiUser from '../presentation/service';
 
 const LAYOUT_CONFIG = Meteor.settings.public.layout;
 const KURENTO_CONFIG = Meteor.settings.public.kurento;
@@ -37,6 +39,16 @@ function shouldShowExternalVideo() {
   return enableExternalVideo && getVideoUrl();
 }
 
+function shouldShowLiveStream() {
+  return getLiveStreamUrl();
+}
+const getMultiUserStatus = (whiteboardId) => {
+  const data = WhiteboardMultiUser.findOne({
+    meetingId: Auth.meetingID,
+    whiteboardId,
+  });
+  return data ? data.multiUser : false;
+};
 function shouldShowOverlay() {
   return getFromUserSettings('bbb_enable_video', KURENTO_CONFIG.enableVideo);
 }
@@ -76,4 +88,6 @@ export default {
   shouldEnableSwapLayout,
   getSwapLayout,
   setSwapLayout,
+  shouldShowLiveStream,
+  getMultiUserStatus,
 };

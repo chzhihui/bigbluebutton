@@ -1,0 +1,179 @@
+@import "/imports/ui/stylesheets/variables/_all";
+@import "/imports/ui/components/modal/simple/styles";
+@import "/imports/ui/stylesheets/mixins/focus";
+
+.header {
+  margin: 0;
+  padding: 0;
+  border: none;
+  line-height: 2rem;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0;
+  margin-right: auto;
+  margin-left: auto;
+  width: 100%;
+  overflow: hidden;
+}
+
+.videoOptions {
+  margin-top: auto;
+  margin-bottom: auto;
+  display: flex;
+}
+
+.overlay {
+  @extend .overlay;
+}
+
+.modal4 {
+  @extend .modal;
+  padding: 1.5rem;
+  min-height: 23rem;
+  width: 73rem !important;
+  max-width: 90vw !important;
+}
+.modal1{
+  @extend .modal;
+  padding: 1.5rem;
+  min-height: 23rem;
+  width: 39rem !important;
+}
+.closeBtn {
+  position: relative;
+  background-color: var(--color-white);
+
+  i {
+    color: var(--color-gray-light);
+  }
+
+  &:focus,
+  &:hover{
+    background-color: var(--color-gray-lighter);
+    i{
+      color: var(--color-gray);
+    }
+  }
+}
+.warning{
+  text-align: center;
+  font-weight: var(--headings-font-weight);
+  font-size: 5rem;
+  white-space: normal;
+}
+.text{
+  margin: var(--line-height-computed);
+  text-align: center;
+}
+
+.main {
+  margin: var(--line-height-computed);
+  text-align: center;
+  font-size: var(--font-size-large);
+}
+
+.startBtn {
+
+  &:focus {
+    outline: none !important;
+  }
+
+  i{
+    color: #3c5764;
+  }
+
+  margin: 5px;
+  width: 30%;
+  display: inline-block;
+
+  color: var(--color-white) !important;
+  background-color: var(--color-link) !important;
+}
+.buttonDiv{
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+.title {
+  text-align: center;
+  font-weight: 400;
+  font-size: 1.3rem;
+  white-space: normal;
+
+  @include mq(var(--small-only)) {
+    font-size: 1rem;
+    padding: 0 1rem;
+  }
+}
+
+.liveStreamNote {
+  color: var(--color-gray);
+  font-size: var(--font-size-small);
+  font-style: italic;
+  padding-top: var(--sm-padding-y);
+}
+.hoverGrid .hoverGridItem {
+  width: 16rem;
+  height: 9rem;
+  margin: 0 1rem 1rem 0;
+  float: left;
+  /*-webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;*/
+  overflow:hidden;
+  position:relative;
+  cursor:default;
+}
+.hoverGrid{
+  height: 20rem;
+  width: 100%;
+  margin-top: 1rem;
+  overflow-y: auto;
+}
+.hoverGrid img {
+  /*-webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;*/
+
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+}
+.hoverGridImageDiv{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+.activeGridItem .caption{
+    background: rgba(0, 0, 0, 0.5) !important;
+    display: block !important;
+}
+.hoverGridItem .caption {
+  background-color: #07000000;
+  width:100%;
+  height:100%;
+  padding: 1rem;
+  position:absolute;
+  display: none;
+  left:0;
+  color: #fff;
+  line-height:1.1;
+  z-index: 100;
+  /*-webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;*/
+}
+.hoverGridItem:hover .caption{
+  display: block;
+}
+
+.hoverGridItem .caption p {
+  font-size: 1px;
+  font-weight: 400;
+  color: #fff;
+}

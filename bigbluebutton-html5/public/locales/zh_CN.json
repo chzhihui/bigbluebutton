@@ -691,7 +691,13 @@
     "app.iOSWarning.label": "请升级至iOS 12.2或更高版本",
     "app.legacy.unsupportedBrowser": "看起来您使用的浏览器不受支持。 请使用 {0} 或 {1} 以获得全面支持。",
     "app.legacy.upgradeBrowser": "看起来您使用的是受支持浏览器的旧版本。请升级浏览器以获得完全支持。",
-    "app.legacy.criosBrowser": "在iOS上，请使用Safari以获得全面支持。"
+    "app.legacy.criosBrowser": "在iOS上，请使用Safari以获得全面支持。",
+    "app.actionsBar.actionsDropdown.liveStreamBtnLabel": "打开直播面板",
+    "app.actionsBar.actionsDropdown.liveStreamBtnDesc": "打开直播面板",
+    "app.LiveStream.start": "开始直播",
+    "app.LiveStream.stop": "停止直播",
+    "app.LiveStream.title": "直播面板",
+    "app.LiveStream.switchError": "无法切换视频，请联系管理员解决"
 
 }
 

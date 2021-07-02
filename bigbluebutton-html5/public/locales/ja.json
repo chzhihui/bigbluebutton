@@ -811,7 +811,13 @@
     "app.debugWindow.form.userAgentLabel": "ユーザーエージェント",
     "app.debugWindow.form.button.copy": "コピー",
     "app.debugWindow.form.enableAutoarrangeLayoutLabel": "自動レイアウトを有効にする",
-    "app.debugWindow.form.enableAutoarrangeLayoutDescription": "（ウェブカメラエリアをドラッグしたりリサイズしたりすると無効となります）"
+    "app.debugWindow.form.enableAutoarrangeLayoutDescription": "（ウェブカメラエリアをドラッグしたりリサイズしたりすると無効となります）",
+    "app.actionsBar.actionsDropdown.liveStreamBtnDesc": "ライブ配信パネルを開く",
+    "app.actionsBar.actionsDropdown.liveStreamBtnLabel": "ライブ配信パネルを開く",
+    "app.LiveStream.start": "ライブ配信を開始する",
+    "app.LiveStream.stop": "ライブ配信を停止する",
+    "app.LiveStream.title": "ライブ配信パネル",
+    "app.LiveStream.switchError": "映像の切替が完了できなかった、システム管理者とご連絡ください。"
 
 }
 

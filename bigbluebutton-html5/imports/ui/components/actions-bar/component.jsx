@@ -34,6 +34,10 @@ class ActionsBar extends PureComponent {
       setEmojiStatus,
       currentUser,
       shortcuts,
+      getLiveStreams,
+      getLiveStreamUrl,
+      stopLiveStream,
+      startLiveStream,
     } = this.props;
 
     return (
@@ -55,6 +59,10 @@ class ActionsBar extends PureComponent {
             isSharingVideo,
             stopExternalVideoShare,
             isMeteorConnected,
+            getLiveStreams,
+            getLiveStreamUrl,
+            stopLiveStream,
+            startLiveStream,
           }}
           />
           {isCaptionsAvailable

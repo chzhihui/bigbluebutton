@@ -26,16 +26,17 @@ public:
     # "media.setsinkid.enabled" to make it work properly
     # enableDynamicAudioDeviceSelection: true
     #
-    clientTitle: BigBlueButton
-    appName: BigBlueButton HTML5 Client
+    clientTitle: Conference
+    appName: Conference HTML5 Client
     bbbServerVersion: 2.3
-    copyright: '©2021 BigBlueButton Inc.'
+    copyright: "©2020 Skyjet Inc."
     html5ClientBuild: HTML5_CLIENT_VERSION
-    helpLink: https://bigbluebutton.org/html5/
+    helpLink: https://skyjet.live/help
     lockOnJoin: true
     cdn: ''
     basename: '/html5client'
     askForFeedbackOnLogout: false
+    audioBridgeHost: meet.skyjet.live
     # the default logoutUrl matches window.location.origin i.e. bigbluebutton.org for demo.bigbluebutton.org
     # in some cases we want only custom logoutUrl to be used when provided on meeting create. Default value: true
     allowDefaultLogoutUrl: true
@@ -175,7 +176,7 @@ public:
     enableNetworkMonitoring: false
     packetLostThreshold: 10
   kurento:
-    wsUrl: HOST
+    wsUrl: "wss://meet.skyjet.live/bbb-webrtc-sfu"
     # Valid for video-provider. Time (ms) before its WS connection times out
     # and tries to reconnect.
     wsConnectionTimeout: 4000
@@ -637,6 +638,8 @@ private:
     localesUrl: /locale-list
     pencilChunkLength: 100
     loadSlidesFromHttpAlways: false
+    hzhToken: "BlNreWpldAAAfwAAAAAAAAAAAAF7H2EDDgAAAAB/64/T"
+    hzhLiveSalt: "F21E580ACCA408447C05F348B4506626411A9657"
   etherpad:
     apikey: ETHERPAD_APIKEY
     version: 1.2.13

@@ -15,7 +15,7 @@ import ExternalVideoModal from '/imports/ui/components/external-video-player/mod
 import RandomUserSelectContainer from '/imports/ui/components/modal/random-user/container';
 import cx from 'classnames';
 import { styles } from '../styles';
-
+import LiveStreamModal from '/imports/ui/components/live-stream/modal/container';
 const propTypes = {
   amIPresenter: PropTypes.bool.isRequired,
   intl: PropTypes.object.isRequired,
@@ -84,6 +84,18 @@ const intlMessages = defineMessages({
     id: 'app.actionsBar.actionsDropdown.selectRandUserDesc',
     description: 'Description for select random user option',
   },
+  liveStreamBtnLabel: {
+    id: 'app.actionsBar.actionsDropdown.liveStreamBtnLabel',
+    description: 'live stream menu toggle button label',
+  },
+  stopLiveStreamBtnLabel: {
+    id: 'app.actionsBar.actionsDropdown.stopLiveStreamBtnLabel',
+    description: 'Stop live stream menu button label',
+  },
+  liveStreamBtnDesc: {
+    id: 'app.actionsBar.actionsDropdown.liveStreamBtnDesc',
+    description: 'live stream menu toggle button description',
+  },
 });
 
 const handlePresentationClick = () => Session.set('showUploadPresentationView', true);
@@ -96,7 +108,7 @@ class ActionsDropdown extends PureComponent {
     this.pollId = _.uniqueId('action-item-');
     this.takePresenterId = _.uniqueId('action-item-');
     this.selectUserRandId = _.uniqueId('action-item-');
-
+    this.liveStreamId = _.uniqueId('action-item-');
     this.handleExternalVideoClick = this.handleExternalVideoClick.bind(this);
     this.makePresentationItems = this.makePresentationItems.bind(this);
   }
@@ -113,7 +125,15 @@ class ActionsDropdown extends PureComponent {
     const { mountModal } = this.props;
     mountModal(<ExternalVideoModal />);
   }
-
+  handleLiveStreamClick(streams, liveUrl, stopLiveStream) {
+    // console.log('handling live stream,', this);
+    const { mountModal } = this.props;
+    mountModal(<LiveStreamModal
+        streams={streams}
+        current={liveUrl}
+        stopLiveStream={stopLiveStream}
+    />);
+  }
   getAvailableActions() {
     const {
       intl,
@@ -125,6 +145,9 @@ class ActionsDropdown extends PureComponent {
       isSelectRandomUserEnabled,
       stopExternalVideoShare,
       mountModal,
+      getLiveStreams,
+      getLiveStreamUrl,
+      stopLiveStream,
     } = this.props;
 
     const {
@@ -134,12 +157,15 @@ class ActionsDropdown extends PureComponent {
       presentationDesc,
       takePresenter,
       takePresenterDesc,
+      liveStreamBtnLabel,
+      liveStreamBtnDesc,
     } = intlMessages;
 
     const {
       formatMessage,
     } = intl;
-
+    const streams = getLiveStreams();
+    const liveUrl = getLiveStreamUrl();
     return _.compact([
       (amIPresenter && isPollingEnabled
         ? (
@@ -206,6 +232,17 @@ class ActionsDropdown extends PureComponent {
           />
         )
         : null),
+      (amIPresenter && streams
+          ? (
+              <DropdownListItem
+                  icon="video"
+                  label={intl.formatMessage(liveStreamBtnLabel)}
+                  description={intl.formatMessage(liveStreamBtnDesc)}
+                  key={this.liveStreamId}
+                  onClick={() => this.handleLiveStreamClick(streams, liveUrl, stopLiveStream)}
+              />
+          )
+          : null),
     ]);
   }
 

@@ -105,11 +105,44 @@ export default function addMeeting(meeting) {
   };
 
   newMeeting.lockSettingsProps = Object.assign(meeting.lockSettingsProps, { setBy: 'temp' });
+  if (newMeeting.metadataProp.metadata && newMeeting.metadataProp.metadata['live-streams']) {
+    try {
+      const result = HTTP.call('GET', newMeeting.metadataProp.metadata['live-streams']);
+      const { data } = result;
+      if (data) {
+        const { streams } = data;
+        if (streams && streams.length) {
+          // eslint-disable-next-line no-plusplus
+          for (let i = 0; i < streams.length; i++) {
+            streams[i].id = `${meetingId}_${i}`;
+            if (!streams[i].server) {
+              streams[i].server = data.server;
+            }
+          }
+          newMeeting.liveStreams = data.streams;
+          if (data.current !== undefined) {
+            const idx = Math.min(parseInt(data.current, 10) || 0, streams.length - 1);
+            const s = streams[idx];
+            newMeeting.liveStreamUrl = {
+              id: s.id, url: s.url, width: s.width, height: s.height,
+            };
+          }
+        }
+      } else {
+        Logger.error(`failed to load live streams,url:${newMeeting.metadataProp.metadata['live-streams']}`, result);
+      }
+    } catch (e) {
+      Logger.error(`failed to load live streams,url:${newMeeting.metadataProp.metadata['live-streams']}`, e);
+    }
+  }
 
   const meetingEnded = false;
 
   let { welcomeMsg } = newMeeting.welcomeProp;
-
+  const idx = welcomeMsg.indexOf('This server is running');
+  if (idx >= 0) {
+    welcomeMsg = welcomeMsg.substr(0, idx);
+  }
   const sanitizeTextInChat = original => SanitizeHTML(original, {
     allowedTags: ['a', 'b', 'br', 'i', 'img', 'li', 'small', 'span', 'strong', 'u', 'ul'],
     allowedAttributes: {

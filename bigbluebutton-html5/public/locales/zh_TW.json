@@ -724,7 +724,13 @@
     "app.legacy.upgradeBrowser": "看起來您是使用受支援的舊版瀏覽器，請更新瀏覽器版本獲取完整支援。",
     "app.legacy.criosBrowser": "在iOS上請使用Safari取得完整支援",
     "app.debugWindow.windowTitle": "偵錯",
-    "app.debugWindow.form.button.copy": "複製"
+    "app.debugWindow.form.button.copy": "複製",
+    "app.actionsBar.actionsDropdown.liveStreamBtnLabel": "打开直播面板",
+    "app.actionsBar.actionsDropdown.liveStreamBtnDesc": "打开直播面板",
+    "app.LiveStream.start": "开始直播",
+    "app.LiveStream.stop": "停止直播",
+    "app.LiveStream.title": "直播面板",
+    "app.LiveStream.switchError": "无法切换视频，请联系管理员解决"
 
 }
 

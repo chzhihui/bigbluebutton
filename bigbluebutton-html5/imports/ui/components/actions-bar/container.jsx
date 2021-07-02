@@ -12,7 +12,9 @@ import Service from './service';
 import UserListService from '/imports/ui/components/user-list/service';
 import ExternalVideoService from '/imports/ui/components/external-video-player/service';
 import CaptionsService from '/imports/ui/components/captions/service';
-
+import {
+  getLiveStreams, getLiveStreamUrl, stopLiveStream, startLiveStream,
+} from '../live-stream/service';
 import MediaService, {
   getSwapLayout,
   shouldEnableSwapLayout,
@@ -61,4 +63,8 @@ export default withTracker(() => ({
     { fields: {} }),
   allowExternalVideo: Meteor.settings.public.externalVideoPlayer.enabled,
   setEmojiStatus: UserListService.setEmojiStatus,
+  getLiveStreams,
+  getLiveStreamUrl,
+  stopLiveStream,
+  startLiveStream,
 }))(injectIntl(ActionsBarContainer));

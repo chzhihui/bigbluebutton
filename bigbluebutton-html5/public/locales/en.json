@@ -814,5 +814,11 @@
     "app.debugWindow.form.enableAutoarrangeLayoutLabel": "Enable Auto Arrange Layout",
     "app.debugWindow.form.enableAutoarrangeLayoutDescription": "(it will be disabled if you drag or resize the webcams area)",
     "app.debugWindow.form.chatLoggerLabel": "Test Chat Logger Levels",
-    "app.debugWindow.form.button.apply": "Apply"
+    "app.debugWindow.form.button.apply": "Apply",
+    "app.actionsBar.actionsDropdown.liveStreamBtnLabel": "Open Live Panel",
+    "app.actionsBar.actionsDropdown.liveStreamBtnDesc": "Open Live Panel",
+    "app.LiveStream.start": "Start",
+    "app.LiveStream.stop": "Stop",
+    "app.LiveStream.title": "Live Panel",
+    "app.LiveStream.switchError": "Failed to switch the stream"
 }

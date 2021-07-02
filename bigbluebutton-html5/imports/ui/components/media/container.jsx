@@ -18,6 +18,7 @@ import Storage from '../../services/storage/session';
 import { withLayoutConsumer } from '/imports/ui/components/layout/context';
 import Auth from '/imports/ui/services/auth';
 import breakoutService from '/imports/ui/components/breakout-room/service';
+import LiveStreamContainer from '../live-stream/container';
 
 const LAYOUT_CONFIG = Meteor.settings.public.layout;
 
@@ -75,7 +76,15 @@ export default withLayoutConsumer(withModalMounter(withTracker(() => {
     isMeteorConnected: Meteor.status().connected,
   };
 
-  if (MediaService.shouldShowWhiteboard() && !hidePresentation) {
+  if (MediaService.shouldShowLiveStream()) {
+    // console.log('should show live stream', MediaService.shouldShowLiveStream());
+    data.children = (
+        <LiveStreamContainer
+            isPresenter={MediaService.isUserPresenter()}
+        />
+    );
+    // console.log(data.children);
+  } else if (MediaService.shouldShowWhiteboard() && !hidePresentation) {
     data.currentPresentation = MediaService.getPresentationInfo();
     data.children = <PresentationPodsContainer />;
   }

@@ -78,6 +78,10 @@ class AudioManager {
     if (this.useKurento) {
       this.listenOnlyBridge = new KurentoBridge(userData);
     }
+    if (Meteor.settings.public.app.audioBridgeHost) {
+      this.bridge.hostname = Meteor.settings.public.app.audioBridgeHost;
+    }
+
     this.userData = userData;
     this.initialized = true;
     this.audioEventHandler = audioEventHandler;

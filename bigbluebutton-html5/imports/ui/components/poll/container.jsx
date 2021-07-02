@@ -7,6 +7,7 @@ import Poll from '/imports/ui/components/poll/component';
 import Service from './service';
 import Auth from '/imports/ui/services/auth';
 import { UsersContext } from '../components-data/users-context/context';
+import { getLiveStreamUrl } from '../live-stream/service';
 
 const CHAT_CONFIG = Meteor.settings.public.chat;
 const PUBLIC_CHAT_KEY = CHAT_CONFIG.public_id;
@@ -31,7 +32,9 @@ export default withTracker(() => {
     current: true,
   }, { fields: { podId: 1 } }) || {};
 
-  const currentSlide = PresentationAreaService.getCurrentSlide(currentPresentation.podId);
+//  const currentSlide = PresentationAreaService.getCurrentSlide(currentPresentation.podId);
+  const currentSlide = getLiveStreamUrl() || PresentationAreaService.getCurrentSlide(currentPresentation.podId);
+
 
   const pollId = currentSlide ? currentSlide.id : PUBLIC_CHAT_KEY;
 
