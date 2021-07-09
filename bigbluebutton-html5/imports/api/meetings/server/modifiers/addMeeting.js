@@ -139,7 +139,7 @@ export default function addMeeting(meeting) {
   const meetingEnded = false;
 
   let { welcomeMsg } = newMeeting.welcomeProp;
-  const idx = welcomeMsg.indexOf('This server is running');
+  const idx = welcomeMsg.indexOf('For help on using');
   if (idx >= 0) {
     welcomeMsg = welcomeMsg.substr(0, idx);
   }

@@ -453,7 +453,16 @@ class PresentationArea extends PureComponent {
                   width,
                   height,
                 }}
+                published
                 whiteboardId={currentVideo.id}
+              />
+              <AnnotationGroupContainer
+                  {...{
+                    width,
+                    height,
+                  }}
+                  published={false}
+                  whiteboardId={currentVideo.id}
               />
               <CursorWrapperContainer
                 podId={podId}
@@ -614,13 +623,13 @@ class PresentationArea extends PureComponent {
 export default injectIntl(PresentationArea);
 
 PresentationArea.propTypes = {
-  intl: intlShape.isRequired,
-  podId: PropTypes.string,
+  intl: PropTypes.object.isRequired,
+  podId: PropTypes.string.isRequired,
   // Defines a boolean value to detect whether a current user is a presenter
   userIsPresenter: PropTypes.bool.isRequired,
   currentVideo: PropTypes.shape({
     url: PropTypes.string.isRequired,
-    server: PropTypes.string.isRequired,
+    //server: PropTypes.string.isRequired,
   }),
   slidePosition: PropTypes.shape({
     x: PropTypes.number.isRequired,

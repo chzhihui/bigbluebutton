@@ -40,7 +40,8 @@ function shouldShowExternalVideo() {
 }
 
 function shouldShowLiveStream() {
-  return getLiveStreamUrl();
+  let url= getLiveStreamUrl();
+  return url && url.url;
 }
 const getMultiUserStatus = (whiteboardId) => {
   const data = WhiteboardMultiUser.findOne({

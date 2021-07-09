@@ -17,7 +17,9 @@ export default function getLiveUrl(options) {
     check(meetingId, String);
     check(userId, String);
     check(liveStreamUrl, Object);
-
+    if(!liveStreamUrl.url){
+      return null;
+    }
     const user = Users.findOne({ meetingId, userId }, { presenter: 1 });
 
     if (!user) {

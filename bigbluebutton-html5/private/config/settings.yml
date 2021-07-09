@@ -31,12 +31,12 @@ public:
     bbbServerVersion: 2.3
     copyright: "©2020 Skyjet Inc."
     html5ClientBuild: HTML5_CLIENT_VERSION
-    helpLink: https://skyjet.live/help
+    helpLink: https://i-on.shop/help
     lockOnJoin: true
     cdn: ''
     basename: '/html5client'
     askForFeedbackOnLogout: false
-    audioBridgeHost: meet.skyjet.live
+    audioBridgeHost: meet.i-on.shop
     # the default logoutUrl matches window.location.origin i.e. bigbluebutton.org for demo.bigbluebutton.org
     # in some cases we want only custom logoutUrl to be used when provided on meeting create. Default value: true
     allowDefaultLogoutUrl: true
@@ -176,7 +176,7 @@ public:
     enableNetworkMonitoring: false
     packetLostThreshold: 10
   kurento:
-    wsUrl: "wss://meet.skyjet.live/bbb-webrtc-sfu"
+    wsUrl: "wss://meet.i-on.shop/bbb-webrtc-sfu"
     # Valid for video-provider. Time (ms) before its WS connection times out
     # and tries to reconnect.
     wsConnectionTimeout: 4000
@@ -441,7 +441,7 @@ public:
     #so far. Increasing this value might help avoiding 1004 error when
     #user activates microphone.
     iceGatheringTimeout: 5000
-    sipjsHackViaWs: false
+    sipjsHackViaWs: true
     # Mute/umute toggle throttle time
     toggleMuteThrottleTime: 300
     #Websocket keepAlive interval (seconds). You may set this to prevent
